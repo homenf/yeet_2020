@@ -55,11 +55,14 @@ const Layout = ({ children }) => {
           >
             <MenuIcon />
           </IconButton>
-          <Link to="/">
-            <Typography variant="h6" className={classes.title}>
+          <Typography variant="h6" className={classes.title}>
+            <Link
+              style={{ textDecoration: "none", color: "rgb(255,255,255)" }}
+              to="/"
+            >
               Yeet 2020
-            </Typography>
-          </Link>
+            </Link>
+          </Typography>
 
           <div>
             <IconButton
