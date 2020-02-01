@@ -1,13 +1,14 @@
 import React from "react"
 import { makeStyles, Typography, Container } from "@material-ui/core"
+import ProgressBar from "../../components/progressBar"
 import Form from "./form"
 import { withFormik } from "formik"
 import Badges from "./badges"
 
 const useStyles = makeStyles({
   container: {
-    padding: "0 45px"
-    // width: "100vw"
+    padding: "0 45px",
+    width: "100%"
   },
   titleContainer: {
     display: "flex",
@@ -21,8 +22,8 @@ const useStyles = makeStyles({
   },
   badgesContainer: {
     position: "absolute",
-    top: 225,
-    right: 150
+    top: 250,
+    right: 125
   }
 })
 
@@ -30,6 +31,7 @@ const AddProduct = ({ values, handleChange }) => {
   const classes = useStyles()
   return (
     <div className={classes.container}>
+      <ProgressBar />
       <div className={classes.titleContainer}>
         <Typography className={classes.title} variant="h4">
           Add a New Product
