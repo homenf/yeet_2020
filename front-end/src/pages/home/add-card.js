@@ -11,7 +11,7 @@ import AddIcon from "@material-ui/icons/Add"
 const useStyles = makeStyles({
   card: {
     display: "flex",
-    width: 400,
+    width: 800,
     justifyContent: "center",
     padding: 10
   },
@@ -27,17 +27,17 @@ const useStyles = makeStyles({
     backgroundColor: "rgb(255,242,0)",
     color: "rgb(0,70,190)"
   }
-})
+});
 
 const AddCard = ({ onAdd }) => {
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
-    <Card className={classes.card}>
-      <CardContent className={classes.content}>
-        <Typography className={classes.title} variant="h6">
-          Add a New Product
-        </Typography>
+      <Card className={classes.card}>
+        <CardContent className={classes.content}>
+          <Typography className={classes.title} variant="h6">
+            Add a New Product
+          </Typography>
 
         <Fab
           size="medium"
@@ -50,6 +50,6 @@ const AddCard = ({ onAdd }) => {
       </CardContent>
     </Card>
   )
-}
+};
 
 export default AddCard
