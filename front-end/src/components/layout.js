@@ -8,6 +8,7 @@ import MenuIcon from "@material-ui/icons/Menu"
 import AccountCircle from "@material-ui/icons/AccountCircle"
 import MenuItem from "@material-ui/core/MenuItem"
 import Menu from "@material-ui/core/Menu"
+import { Link } from "react-router-dom"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -54,9 +55,11 @@ const Layout = ({ children }) => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            Yeet 2020
-          </Typography>
+          <Link to="/">
+            <Typography variant="h6" className={classes.title}>
+              Yeet 2020
+            </Typography>
+          </Link>
 
           <div>
             <IconButton

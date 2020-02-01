@@ -29,7 +29,7 @@ const useStyles = makeStyles({
   }
 })
 
-const AddCard = () => {
+const AddCard = ({ onAdd }) => {
   const classes = useStyles()
 
   return (
@@ -39,7 +39,12 @@ const AddCard = () => {
           Add a New Product
         </Typography>
 
-        <Fab size="medium" className={classes.button} aria-label="add">
+        <Fab
+          size="medium"
+          className={classes.button}
+          aria-label="add"
+          onClick={onAdd}
+        >
           <AddIcon />
         </Fab>
       </CardContent>
