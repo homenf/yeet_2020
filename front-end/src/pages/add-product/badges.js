@@ -1,13 +1,63 @@
 import React from "react"
-import { makeStyles, Card, CardContent, Badge } from "@material-ui/core"
+import {
+  makeStyles,
+  Card,
+  CardContent,
+  Badge,
+  Typography
+} from "@material-ui/core"
 import clsx from "clsx"
+import {
+  ImportContactsRounded,
+  SubjectRounded,
+  AspectRatio,
+  Category
+} from "@material-ui/icons"
+
+const Badges = ({ values }) => {
+  const classes = useStyles()
+
+  return (
+    <Card className={classes.card}>
+      <CardContent className={classes.content} style={{ width: "100%" }}>
+        <Typography className={classes.title} variant="subtitle1" align="left">
+          Badges
+        </Typography>
+      </CardContent>
+      {Object.keys(values).map(key => (
+        <CardContent key={key} className={classes.content}>
+          <Badge
+            className={classes.badge}
+            color="primary"
+            overlap="circle"
+            badgeContent={
+              values[key].length > schema[key].badgeValidation ? "✓" : null
+            }
+          >
+            <div className={clsx(classes.shape, classes.shapeCircle)}>
+              {schema[key].icon}
+            </div>
+          </Badge>
+        </CardContent>
+      ))}
+    </Card>
+  )
+}
+
+const schema = {
+  productDescription: { icon: <ImportContactsRounded />, badgeValidation: 80 },
+  included: { icon: <SubjectRounded />, badgeValidation: 80 },
+  specifications: { icon: <AspectRatio />, badgeValidation: 80 },
+  category: { icon: <Category />, badgeValidation: 0 }
+}
 
 const useStyles = makeStyles({
   card: {
     display: "flex",
-    width: 400,
-    justifyContent: "center",
-    padding: 10
+    width: 300,
+    justifyContent: "flex-start",
+    padding: 10,
+    flexFlow: "row wrap"
   },
   content: {
     display: "flex",
@@ -16,41 +66,22 @@ const useStyles = makeStyles({
     width: "50%"
   },
   title: {
-    marginBottom: 20
+    fontWeight: 500
   },
   shape: {
-    backgroundColor: "red",
-    width: 40,
-    height: 40
+    backgroundColor: "yellow",
+    width: 50,
+    height: 50,
+    display: "flex",
+    flexGrow: 0,
+    justifyContent: "center",
+    alignItems: "center"
   },
   shapeCircle: {
     borderRadius: "50%"
   },
   badge: {
-    color: "green"
+    color: "blue"
   }
 })
-
-const Badges = ({ values }) => {
-  const classes = useStyles()
-  const circle = <div className={clsx(classes.shape, classes.shapeCircle)} />
-
-  return (
-    <Card className={classes.card}>
-      {Object.keys(values).map(key => (
-        <CardContent className={classes.content}>
-          <Badge
-            className={classes.badge}
-            color="primary"
-            overlap="circle"
-            badgeContent={values[key] ? "✓" : null}
-          >
-            {circle}
-          </Badge>
-        </CardContent>
-      ))}
-    </Card>
-  )
-}
-
 export default Badges

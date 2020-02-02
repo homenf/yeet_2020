@@ -51,7 +51,9 @@ const AddProduct = ({ values, handleChange }) => {
 const formSchema = {
   mapPropsToValues: () => ({
     productDescription: "",
-    included: ""
+    included: "",
+    specifications: "",
+    category: ""
   })
 }
 

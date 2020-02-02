@@ -2,10 +2,10 @@ import React from "react"
 import {
   makeStyles,
   TextField,
-  Typography,
   FormControl,
   InputLabel,
-  Input,
+  Select,
+  MenuItem,
   FormHelperText
 } from "@material-ui/core"
 
@@ -28,11 +28,33 @@ const useStyles = makeStyles({
   }
 })
 
-const Form = ({ values: { productDescription, included }, handleChange }) => {
+const Form = ({
+  values: { productDescription, included, category },
+  handleChange
+}) => {
   const classes = useStyles()
   return (
     <div>
       <form className={classes.form}>
+        <FormControl className={classes.input}>
+          <InputLabel id="demo-simple-select-helper-label">Category</InputLabel>
+          <Select
+            className={classes.productInput}
+            name="category"
+            value={category}
+            onChange={handleChange}
+          >
+            <MenuItem value="">
+              <em>None</em>
+            </MenuItem>
+            <MenuItem value={"phone"}>Mobile Phone</MenuItem>
+            <MenuItem value={"tv"}>TV</MenuItem>
+            <MenuItem value={"electric_skateboard"}>
+              Electric SkateBoard
+            </MenuItem>
+          </Select>
+          <FormHelperText>What are you selling?</FormHelperText>
+        </FormControl>
         <FormControl className={classes.input}>
           <TextField
             className={classes.productInput}
